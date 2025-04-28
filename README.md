@@ -23,4 +23,4 @@ This is a simple Ticketing System API built with **Spring Boot**, **PostgreSQL**
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ticketing-system.git
+git clone https://github.com/Abelo73/ticketing-system.git

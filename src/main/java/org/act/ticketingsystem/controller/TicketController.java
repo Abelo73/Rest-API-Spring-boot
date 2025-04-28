@@ -1,5 +1,7 @@
 package org.act.ticketingsystem.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.act.ticketingsystem.dto.BaseResponseDTO;
 import org.act.ticketingsystem.model.Ticket;
 import org.act.ticketingsystem.service.TicketService;
@@ -8,6 +10,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +26,8 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
+    @Operation(summary = "Create a new ticket", description = "This endpoint allows you to create a new ticket.")
+
     @PostMapping("/create")
     public BaseResponseDTO<Ticket> createTicket(@RequestBody Ticket ticket) {
         try {
@@ -33,11 +39,12 @@ public class TicketController {
     }
 
 
-//    @GetMapping("/all")
-//    public List<Ticket> getAllTickets(){
-//        return ticketService.getAllTickets();
-//    }
 
+
+
+
+
+    @Operation(summary = "Get all tickets", description = "This endpoint fetches all tickets.")
     @GetMapping("/all")
     public BaseResponseDTO<List<Ticket>> getAllTickets(){
         try {
@@ -65,6 +72,9 @@ public class TicketController {
 
         return ResponseEntity.ok(response);
     }
+
+    @Operation(summary = "Get a ticket by ID", description = "Fetch a ticket by its ID")
+    @ApiResponse(responseCode = "200", description = "Ticket found")
     @GetMapping("/single")
     public BaseResponseDTO<Optional<Ticket>> getTicketById(@RequestParam Long ticketId) {
         try {

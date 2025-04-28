@@ -39,11 +39,6 @@ public class TicketController {
     }
 
 
-
-
-
-
-
     @Operation(summary = "Get all tickets", description = "This endpoint fetches all tickets.")
     @GetMapping("/all")
     public BaseResponseDTO<List<Ticket>> getAllTickets(){
@@ -54,7 +49,6 @@ public class TicketController {
             return new BaseResponseDTO<>(false, "Something error: " + e.getMessage(), null);
         }
     }
-
 
     @GetMapping("/tickets")
     public ResponseEntity<BaseResponseDTO<Page<Ticket>>> getTickets(
